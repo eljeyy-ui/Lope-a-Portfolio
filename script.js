@@ -22,7 +22,6 @@ const projectData = {
         about: "A custom-built digital portfolio designed to reflect my professional identity as a Computer Engineering student."
     }
 
-    
 };
 
 function toggleMenu() {
