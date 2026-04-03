@@ -161,3 +161,7 @@ function showContact() {
     // Close menu
     document.body.classList.remove("menu-active");
 }
+
+about.style.display = "flex"; 
+
+about.classList.remove('hidden');
