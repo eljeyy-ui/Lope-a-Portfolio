@@ -696,15 +696,31 @@ body.menu-active {
         align-items: center;
     }
 
-    /* 3. Adjust Project Cards */
-    .project-grid {
+    #project-details {
+        width: 100% !important; /* Take full width to allow centering */
+        padding: 60px 0 !important; /* Space for top navigation */
+        margin: 0 auto !important;
+        display: flex;
         flex-direction: column;
-        padding-top: 20px;
+        align-items: center; /* Center children horizontally */
     }
 
+    /* Fix the grid/flex layout for the cards */
+    .project-grid {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important; /* This centers the cards */
+        width: 100% !important;
+        gap: 30px !important;
+        padding-top: 20px !important;
+    }
+
+    /* Ensure individual cards are centered and sized correctly */
     .project-card {
-        width: 90%; /* Take up most of the screen width */
-        max-width: none;
+        width: 85% !important; /* Consistent width on mobile */
+        max-width: 350px;
+        margin: 0 auto !important; /* Force horizontal centering */
+        box-sizing: border-box;
     }
 
     /* 4. Fix Sidebar Menu */
