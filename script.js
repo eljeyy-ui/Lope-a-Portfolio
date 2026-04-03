@@ -12,7 +12,17 @@ const projectData = {
         developed: "Developed in 2026",
         why: "To provide a platform for local freelancers to find quick work.",
         about: "A community-driven marketplace for local side hustles and digital service offerings."
+    },
+
+    lopea_portfolio: {
+        title: "Personal Engineering Portfolio",
+        image: "lopea-portfolio.png", // REWRITE THIS IMAGE NAME
+        developed: "Developed in 2024",
+        why: "To showcase my academic background, technical skills, and software engineering projects.",
+        about: "A custom-built digital portfolio designed to reflect my professional identity as a Computer Engineering student."
     }
+
+    
 };
 
 function toggleMenu() {
@@ -161,7 +171,3 @@ function showContact() {
     // Close menu
     document.body.classList.remove("menu-active");
 }
-
-about.style.display = "flex"; 
-
-about.classList.remove('hidden');
