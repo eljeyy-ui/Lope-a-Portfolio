@@ -703,7 +703,7 @@ body.menu-active {
     }
 
     .project-card {
-        width: 80%; /* Take up most of the screen width */
+        width: 90%; /* Take up most of the screen width */
         max-width: none;
     }
 
