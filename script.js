@@ -21,7 +21,6 @@ const projectData = {
         why: "To showcase my academic background, technical skills, and software engineering projects.",
         about: "A custom-built digital portfolio designed to reflect my professional identity as a Computer Engineering student."
     }
-
 };
 
 function toggleMenu() {
