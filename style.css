@@ -14,7 +14,7 @@ body.pink-theme {
 
 body {
     margin: 0;
-    background-color: var(--accent-color); /* Visible behind the curve */
+    background-color: var(--accent-color);
     overflow: hidden;
     font-family: 'Segoe UI', sans-serif;
 }
@@ -30,7 +30,7 @@ body {
 }
 
 #theme-icon {
-    width: 30px;  /* Adjust size as needed */
+    width: 30px;
     height: 30px;
     transition: transform 0.3s ease;
 }
@@ -39,7 +39,6 @@ body {
     transform: scale(1.1);
 }
 
-/* THE HOME PAGE WRAPPER */
 #main-wrapper {
     background-color: var(--bg-color);
     height: 100vh;
@@ -50,20 +49,12 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* Normal state: Just a full screen */
     clip-path: ellipse(150% 100% at 50% 50%);
 }
 
-/* THE ADJUSTED CURVE STATE */
 body.menu-active #main-wrapper {
-    /* Slide the home page less to the left so it stays visible */
     transform: translateX(-25%); 
     
-    /* THE FIX: 
-       We change the 'at' position. 
-       Moving it from -20% to 15% pushes the "belly" of the curve further right.
-       Increasing the circle size to 120% makes the curve flatter and less aggressive.
-    */
     clip-path: circle(100% at 15% 50%); 
     
     box-shadow: 20px 0 50px rgba(0,0,0,0.2);
@@ -71,18 +62,15 @@ body.menu-active #main-wrapper {
 }
 
 #main-wrapper {
-    /* ... your existing height, width, etc ... */
-    clip-path: circle(120% at 15% 50%); /* Start as a massive circle that covers the whole screen */
+    clip-path: circle(120% at 15% 50%);
 }
 
 .hero {
-    /* This ensures your name and motto don't hit the curved edge */
     padding-left: 50px;
     padding-right: 50px;
     transition: all 0.5s ease;
 }
 
-/* TOP NAVIGATION & BURGER */
 .top-nav {
     width: 100%;
     padding: 20px 40px;
@@ -99,23 +87,19 @@ body.menu-active #main-wrapper {
 }
 
 .line {
-    width: 22px; /* Smaller as requested */
+    width: 22px;
     height: 2px;
     background-color: var(--text-color);
     border-radius: 2px;
 }
 
-/* SIDEBAR & CONTAINERS (The Right Side) */
 #sidebar-menu {
     position: fixed;
     right: 0;
     top: 0;
-    /* We set the width to 100% so we can use flexbox to 
-       push the items to the right side precisely */
     width: 100%; 
     height: 100%;
     display: flex;
-    /* This pushes the menu-content to the right side */
     justify-content: flex-end; 
     align-items: center;
     z-index: 1;
@@ -125,22 +109,19 @@ body.menu-active #main-wrapper {
     display: flex;
     flex-direction: column;
     gap: 20px;
-    /* This padding-right is the secret. 
-       Adjust this percentage (e.g., 10% or 15%) 
-       to move the boxes left or right until they hit the 'center' of the blue area. */
     padding-right: 6%; 
     box-sizing: border-box;
 }
 
 .nav-box {
     border: 2px solid white;
-    padding: 15px 45px; /* Slightly wider for a better look */
+    padding: 15px 45px;
     background: rgba(255, 255, 255, 0.1);
     border-radius: 12px;
     cursor: pointer;
     transition: 0.3s ease;
     text-align: center;
-    min-width: 180px; /* Ensures all boxes are the same width */
+    min-width: 180px; 
 }
 
 .nav-box:hover {
@@ -158,7 +139,7 @@ body.menu-active #main-wrapper {
     color: var(--accent-color);
 }
 
-/* ORIGINAL HERO STYLES */
+
 .hero { text-align: center; padding: 20px; }
 .profile-img { width: 150px; height: 150px; border-radius: 50%; border: 4px solid var(--accent-color); object-fit: cover; animation: softFloat 4s ease-in-out infinite; }
 .motto { font-style: italic; max-width: 500px; margin: 20px auto; }
@@ -167,45 +148,41 @@ body.menu-active #main-wrapper {
 .container-wrapper { display: flex; gap: 15px; margin-top: 20px; }
 .clickable-container { background: var(--container-bg); padding: 15px 30px; border-radius: 12px; cursor: pointer; transition: 0.3s; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
 
-/* Modals */
 .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); justify-content: center; align-items: center; z-index: 100; }
 .modal-content { background: var(--container-bg); padding: 40px; border-radius: 20px; width: 60%; position: relative; }
 .close { position: absolute; right: 20px; top: 10px; font-size: 30px; cursor: pointer; }
 
 @keyframes softFloat { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-10px); } }
 
-/* SIDEBAR BACK BUTTON */
 .back-nav-container {
     width: 100%;
     display: flex;
-    justify-content: flex-start; /* Aligns it to the left of the boxes */
-    margin-bottom: 10px; /* Space between icon and the first box */
+    justify-content: flex-start;
+    margin-bottom: 10px;
 }
 
-/* ABSOLUTE POSITIONING FOR TOP LEFT OF SIDEBAR */
 #sidebar-back-btn {
     position: absolute;
-    top: 30px;    /* Distance from the top of the screen */
-    left: 40px;   /* Distance from the start of the dark area */
+    top: 30px;
+    left: 40px;
     background: transparent;
     border: none;
     cursor: pointer;
     padding: 10px;
-    z-index: 10;  /* Ensures it stays on top */
+    z-index: 10;
     transition: transform 0.3s ease;
 }
 
 #sidebar-back-btn img {
-    width: 40px;  /* Size of the icon */
+    width: 40px;
     height: 40px;
-    filter: invert(1); /* Makes the icon black */
+    filter: invert(1);
 }
 
 #sidebar-back-btn:hover {
     transform: scale(1.1);
 }
 
-/* Adjust the sidebar container to ensure relative positioning works */
 #sidebar-menu {
     position: fixed;
     right: 100;
@@ -218,12 +195,10 @@ body.menu-active #main-wrapper {
     z-index: 1;
 }
 
-/* Visibility Toggle */
 .hidden {
     display: none !important;
 }
 
-/* Project Section Layout */
 #project-details {
     width: 90%;
     max-width: 1100px;
@@ -244,7 +219,6 @@ body.menu-active #main-wrapper {
     gap: 20px;
 }
 
-/* The 3 Containers */
 .project-card {
     background: var(--container-bg);
     border: 1px solid var(--accent-color);
@@ -289,31 +263,28 @@ body.menu-active #main-wrapper {
 }
 
 body.menu-active {
-    overflow: hidden; /* Keep hidden when sidebar is open */
+    overflow: hidden;
 }
 
 #main-wrapper {
-    overflow-y: auto; /* Allow the main content area to scroll if projects are long */
+    overflow-y: auto;
 }
 
-/* Layout for the Project area */
 #project-details {
     padding: 40px;
-    width: 80%; /* Leaves room for the sidebar on the right */
+    width: 80%;
     margin-right: auto;
 }
 
-/* Center the project cards in the remaining space */
 .project-grid {
     display: flex;
     gap: 40px;
-    justify-content: center; /* This moves them to the middle */
+    justify-content: center;
     align-items: center;
     padding-top: 50px;
     width: 100%;
 }
 
-/* Ensure the hidden class works correctly */
 .hidden {
     display: none !important;
 }
@@ -325,7 +296,6 @@ body.menu-active {
     align-items: center;
 }
 
-/* Individual Project Card */
 .project-card {
     background: var(--container-bg);
     border: 2px solid var(--accent-color);
@@ -352,11 +322,10 @@ body.menu-active {
 .img-container img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* This prevents the screenshot from stretching */
+    object-fit: cover;
     display: block;
 }
 
-/* Fix the duplicate title look */
 .project-card h3 {
     margin: 10px 0;
     font-size: 1.2rem;
@@ -369,7 +338,6 @@ body.menu-active {
     font-size: 0.9rem;
 }
 
-/* Tech Stack "Pills" from your sketch */
 .tech-stack {
     display: flex;
     flex-wrap: wrap;
@@ -392,7 +360,6 @@ body.menu-active {
     padding: 30px;
     border-radius: 20px;
     
-    /* This makes it a Big Square */
     width: 80vw; 
     max-width: 600px;
     aspect-ratio: 1 / 1; 
@@ -401,10 +368,9 @@ body.menu-active {
     display: flex;
     flex-direction: column;
     box-shadow: 0 10px 40px rgba(0,0,0,0.3);
-    overflow-y: auto; /* Just in case text is long */
+    overflow-y: auto;
 }
 
-/* Make the internal layout stack vertically */
 .modal-grid {
     display: flex;
     flex-direction: column;
@@ -422,19 +388,17 @@ body.menu-active {
 
 .modal-img {
     width: 100%;
-    height: 200px; /* Adjust height of the image inside the square */
+    height: 200px;
     object-fit: cover;
     border-radius: 10px;
 }
 
-/* Mobile Responsive: Stack them on top of each other on small screens */
 @media (max-width: 600px) {
     .modal-grid {
         grid-template-columns: 1fr;
     }
 }
 
-/* Existing Modal Overlay Styles */
 .modal-overlay {
     position: fixed;
     top: 0;
@@ -459,14 +423,14 @@ body.menu-active {
     position: absolute;
     top: 15px;
     right: 15px;
-    width: 30px;  /* Small fixed width */
-    height: 30px; /* Small fixed height */
-    font-size: 20px; /* Smaller font size for the '×' symbol */
+    width: 30px;
+    height: 30px;
+    font-size: 20px;
     font-weight: bold;
     color: var(--text-color);
-    background: rgba(0, 0, 0, 0.1); /* Subtle circle background */
+    background: rgba(0, 0, 0, 0.1);
     border: none;
-    border-radius: 50%; /* Makes the background a circle */
+    border-radius: 50%;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -478,10 +442,9 @@ body.menu-active {
 .close-btn:hover {
     background: var(--accent-color);
     color: white;
-    transform: rotate(90deg); /* Cool little spin on hover */
+    transform: rotate(90deg);
 }
 
-/* About Me Layout */
 #about-me {
     display: flex;
     justify-content: center;
@@ -502,12 +465,11 @@ body.menu-active {
     border: 3px solid var(--accent-color);
 }
 
-/* The Square Box */
 .about-square {
     background: var(--container-bg);
     width: 85vw;
     max-width: 500px;
-    aspect-ratio: 1 / 1; /* Keeps it a square */
+    aspect-ratio: 1 / 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -551,7 +513,7 @@ body.menu-active {
 
 .academic-section {
     margin: 15px 0;
-    text-align: left; /* Makes the list easier to read */
+    text-align: left;
     background: rgba(0, 0, 0, 0.03);
     padding: 15px;
     border-radius: 10px;
@@ -577,16 +539,14 @@ body.menu-active {
     border-left: 2px solid var(--accent-color);
 }
 
-/* Adjust the square to handle the extra text */
 .about-square {
-    /* Keep your existing square styles, but ensure overflow is handled */
     overflow-y: auto; 
     height: auto; 
     min-height: 600px;
 }
 
 #contact-me {
-    display: none; /* Controlled by JS */
+    display: none;
     justify-content: center;
     align-items: center;
     height: 80vh;
@@ -659,27 +619,24 @@ body.menu-active {
     color: var(--accent-color);
 }
 
-/* This ensures that when we add the 'hidden' class, the flexbox also disappears */
 .hidden {
     display: none !important;
 }
 
 @media (max-width: 768px) {
-    /* 1. Fix the Main Wrapper & Curve */
     #main-wrapper {
-        clip-path: none !important; /* Remove complex curve on mobile for better performance */
+        clip-path: none !important;
         width: 100%;
         transform: none !important;
         overflow-x: hidden;
     }
 
     body.menu-active #main-wrapper {
-        transform: translateX(-80%) !important; /* Slide more to the left on mobile */
+        transform: translateX(-80%) !important;
     }
 
-    /* 2. Stack Hero Content */
     .hero {
-        padding: 80px 20px 20px 20px; /* Space for the top nav */
+        padding: 80px 20px 20px 20px;
     }
 
     .profile-img {
@@ -697,33 +654,30 @@ body.menu-active {
     }
 
     #project-details {
-        width: 100% !important; /* Take full width to allow centering */
-        padding: 60px 0 !important; /* Space for top navigation */
+        width: 100% !important;
+        padding: 60px 0 !important;
         margin: 0 auto !important;
         display: flex;
         flex-direction: column;
-        align-items: center; /* Center children horizontally */
+        align-items: center;
     }
 
-    /* Fix the grid/flex layout for the cards */
     .project-grid {
         display: flex !important;
         flex-direction: column !important;
-        align-items: center !important; /* This centers the cards */
+        align-items: center !important;
         width: 100% !important;
         gap: 30px !important;
         padding-top: 20px !important;
     }
 
-    /* Ensure individual cards are centered and sized correctly */
     .project-card {
-        width: 85% !important; /* Consistent width on mobile */
+        width: 85% !important;
         max-width: 350px;
-        margin: 0 auto !important; /* Force horizontal centering */
+        margin: 0 auto !important;
         box-sizing: border-box;
     }
 
-    /* 4. Fix Sidebar Menu */
     .menu-content {
         padding-right: 10%;
         width: 70%;
@@ -734,26 +688,24 @@ body.menu-active {
         min-width: 140px;
     }
 
-    /* 5. Fix About & Contact Squares */
     .about-square{
         width: 90vw;
-        aspect-ratio: auto; /* Remove fixed square ratio to prevent text overflow */
+        aspect-ratio: auto;
         min-height: auto;
         padding: 20px;
     }
 
     .contact-square {
         width: 90vw;
-        aspect-ratio: auto; /* Remove fixed square ratio to prevent text overflow */
+        aspect-ratio: auto;
         min-height: auto;
         padding: 20px;
     }
     
     .skills-grid {
-        grid-template-columns: 1fr; /* Single column for skills */
+        grid-template-columns: 1fr;
     }
 
-    /* 6. Fix Modal (Project Popup) */
     .modal-content {
         width: 95vw;
         height: 90vh;
